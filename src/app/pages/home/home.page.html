@@ -1,0 +1,56 @@
+<!-- home.page.html -->
+
+<ion-content>
+  <div class="prueba">
+    <img class="avion" src="assets/imagenes/newTitle.png" alt="VueloSur">
+    </div>
+    <div class="slider-container">
+      <div class="slider">
+        <p>{{ time }}</p>
+        <p>Bienvenido {{loginUser}}</p>
+      </div>
+    </div>
+  <div class="pointbox">
+    <ion-row>
+      <ion-col size="5px">
+        <ion-icon name="navigate-circle-outline" style="font-size: 4em;"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <p>Puntos: 100</p>
+      </ion-col>
+    </ion-row>
+  </div>
+  <div padding>
+    <form>
+      <ion-item>
+        <ion-label position="floating">Ciudad de Origen</ion-label>
+        <ion-input type="text" placeholder=""></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Ciudad de Destino</ion-label>
+        <ion-input type="text" placeholder="Ciudad de Destino"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Fecha de Salida</ion-label>
+        <ion-input type="date" placeholder="Fecha de Salida"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Fecha de Regreso</ion-label>
+        <ion-input type="date" placeholder="Fecha de Regreso"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Número de Pasajeros</ion-label>
+        <ion-input type="number" placeholder="Número de Pasajeros"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Clase</ion-label>
+        <ion-select placeholder="Clase">
+          <ion-select-option value="economica">Económica</ion-select-option>
+          <ion-select-option value="ejecutiva">Ejecutiva</ion-select-option>
+          <ion-select-option value="primera">Primera</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-button expand="block">Buscar Vuelos</ion-button>
+    </form>
+  </div>
+</ion-content>
