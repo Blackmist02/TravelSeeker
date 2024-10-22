@@ -39,22 +39,16 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule),
-<<<<<<< HEAD
-=======
-    canActivate: [DbService]
->>>>>>> caee0493e3de521641caa16da25eaa9764b074a5
+
   },
   {
     path: 'e404',
     loadChildren: () => import('./pages/e404/e404.module').then( m => m.E404PageModule)
-<<<<<<< HEAD
   },
   {
     path: 'tabs',
     loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)
-=======
->>>>>>> caee0493e3de521641caa16da25eaa9764b074a5
-  },
+  }
 ];
 
 @NgModule({
