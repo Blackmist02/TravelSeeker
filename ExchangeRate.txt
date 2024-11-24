@@ -1,0 +1,2 @@
+API_KEY = 'e429a40b1214d5d9bf8ad82f'
+API_BASE_URL = 'https://v6.exchangerate-api.com/v6/e429a40b1214d5d9bf8ad82f/latest/USD'

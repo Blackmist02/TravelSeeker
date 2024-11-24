@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
@@ -33,6 +34,7 @@ export class HomePage implements OnInit {
 
     console.log(this.loginUser);
     console.log(this.loginPassword);
+
   }
 
   ngOnDestroy() {
@@ -46,5 +48,8 @@ export class HomePage implements OnInit {
 
   updateTime() {
     this.time = this.getTime();
+  }
+  tasaDeCambio(){
+    this.router.navigate(['/tasa-de-cambio']);
   }
 }

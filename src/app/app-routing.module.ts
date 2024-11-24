@@ -1,53 +1,42 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { DbService } from './services/db.service';
+import { TasaDeCambioPage } from './pages/tasa-de-cambio/tasa-de-cambio.page';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'login',  // Ruta inicial, redirige a la página de login
     pathMatch: 'full'
   },
   {
-    path: 'login',
-    redirectTo: 'login',
-    pathMatch: 'full'
+    path: 'login', 
+    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule)
   },
   {
     path: 'recuperar-contrasenia',
-    redirectTo: 'recuperar-contrasenia',
-    pathMatch: 'full'
+    loadChildren: () => import('./pages/recuperar-contrasenia/recuperar-contrasenia.module').then(m => m.RecuperarContraseniaPageModule)
   },
   {
     path: 'home',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
-  {
-    path: '**',
-    redirectTo: 'e404',
-    pathMatch: 'full'
-  },
-  {
-    path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
-  },
-  {
-    path: 'recuperar-contrasenia',
-    loadChildren: () => import('./pages/recuperar-contrasenia/recuperar-contrasenia.module').then( m => m.RecuperarContraseniaPageModule)
-  },
-  {
-    path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule),
-
+    loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule)
   },
   {
     path: 'e404',
-    loadChildren: () => import('./pages/e404/e404.module').then( m => m.E404PageModule)
+    loadChildren: () => import('./pages/e404/e404.module').then(m => m.E404PageModule)
   },
   {
     path: 'tabs',
-    loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)
+    loadChildren: () => import('./pages/tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+  {
+    path: 'tasa-de-cambio',
+    loadChildren: () => import('./pages/tasa-de-cambio/tasa-de-cambio.module').then(m => m.TasaDeCambioPageModule)
+  },
+  {
+    path: '**', // Ruta para cualquier URL desconocida
+    redirectTo: 'e404',  // Redirige a la página 404 si no existe la ruta
+    pathMatch: 'full'
   }
 ];
 
@@ -57,4 +46,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

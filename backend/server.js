@@ -2,6 +2,7 @@ const express = require('express');
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const axios = require('axios');
 
 const app = express();
 const port = 3000;
@@ -11,8 +12,8 @@ app.use(bodyParser.json());
 
 const db = mysql.createConnection({
     host: 'localhost',
-    user: 'Ignacio',
-    password: 'Blackmist.3',
+    user: 'root',
+    password: '960529@benemimar',
     database: 'db_travelseeker'
 });
 
@@ -77,6 +78,27 @@ app.post('/api/usuarios/login', (req, res) => {
         run: usuario.run
     });
     });
+});
+
+
+//API ExchangeRate
+
+
+//url base para usar la API
+const BASE_URL = 'https://v6.exchangerate-api.com/v6/e429a40b1214d5d9bf8ad82f/latest/';
+
+app.get('/api/rates/:baseCurrency',async (req,res) =>{
+    const baseCurrency = req.params.baseCurrency || 'USD';
+
+    try{
+        const url = `${BASE_URL}${baseCurrency}`;  // La URL correcta
+        const response = await axios.get(url);
+        res.json(response.data); 
+        
+    }catch(error){
+        console.error('Error al obtener tasas de cambio: ', error);
+        res.status(500).send('Error al obtener tasas de cambio')
+    }
 });
 
 
